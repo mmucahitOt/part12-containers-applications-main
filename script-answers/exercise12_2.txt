@@ -1,0 +1,17 @@
+Script started on Mon Aug  4 18:54:20 2025
+[1m[7m%[27m[1m[0m                                                                                                               
+ 
+
+[0m[27m[24m[Jmmo@Mucahits-MacBook-Air part12-containers-applications-main % [K[?2004hdocker run -it ubuntu bash[26Dscript script-answers/exercise12_2.txt[38Ddocker run -it ubuntu bash            [12D[?2004l
+
+[?2004h]0;root@cdc4eea952f9: /root@cdc4eea952f9:/# mkdir ./usr/src/app
+[?2004l
+[?2004h]0;root@cdc4eea952f9: /root@cdc4eea952f9:/# touch ./usr/src/app/indej xjs  .js
+[?2004l
+[?2004h]0;root@cdc4eea952f9: /root@cdc4eea952f9:/# [Kexit
+[?2004l
+exit
+[1m[7m%[27m[1m[0m                                                                                                               
+ 
+
+[0m[27m[24m[Jmmo@Mucahits-MacBook-Air part12-containers-applications-main % docker run -it ubuntu bash
