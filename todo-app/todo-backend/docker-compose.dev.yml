@@ -1,6 +1,7 @@
 name: todo-backend-dev
 services:
   mongo:
+    container_name: todo-mongo-dev
     image: mongo
     ports:
       - 3456:27017
