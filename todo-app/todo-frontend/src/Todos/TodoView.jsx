@@ -10,6 +10,7 @@ const TodoView = () => {
   const refreshTodos = async () => {
     const { data } = await axios.get('/todos')
     setTodos(data)
+    console.log("data:", data)
   }
 
   useEffect(() => {

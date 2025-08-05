@@ -4,6 +4,8 @@ WORKDIR /usr/src/app
 
 COPY --chown=node:node . .
 
+ENV VITE_BACKEND_URL=http://localhost:3000
+
 RUN npm ci
 
 USER node
