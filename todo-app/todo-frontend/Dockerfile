@@ -1,3 +1,18 @@
+FROM node:20-alpine AS test_stage
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm ci
+
+COPY . .
+
+ENV VITE_BACKEND_URL=http://localhost:3000
+
+RUN chmod +x scripts/test.sh
+RUN ./scripts/test.sh
+
 FROM node:20-alpine AS build_stage
 
 WORKDIR /usr/src/app
