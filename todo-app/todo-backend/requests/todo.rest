@@ -8,7 +8,7 @@ GET http://localhost:3000/todos/6891984bdbc99cccd474e39a
 POST http://localhost:3000/todos
 Content-Type: application/json
 
-{ "text": "test", "done": false }
+{ "text": "test3", "done": false }
 
 ### Create a todo
 PUT http://localhost:3000/todos/6891984bdbc99cccd474e39a
