@@ -1,4 +1,4 @@
-name: todo-app
+name: todo-backend
 services:
   todo-backend:
     build:
