@@ -1,29 +1,40 @@
 name: todo-backend-dev
 
 services:
+  todo-backend-dev:
+    image: todo-backend-dev
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "${BACKEND_PORT:-3000}:3000"
+    container_name: todo-backend-dev
+
   mongo:
     container_name: todo-mongo-dev
     image: mongo
     ports:
-      - 3456:27017
+      - "${MONGO_PORT:-3456}:27017"
     volumes:
       - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
       - mongo_data:/data/db
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root1234
-      MONGO_INITDB_DATABASE: todo-app
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-root}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-root1234}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE:-todo-app}
 
   redis:
     container_name: todo-redis-dev
     image: redis:alpine
     ports:
-      - 6379:6379
+      - "${REDIS_PORT:-6379}:6379"
     volumes:
       - redis_data:/data
-    command: redis-server --appendonly yes --requirepass redis1234
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redis1234}
     environment:
-      - REDIS_PASSWORD=redis1234
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-redis1234}
 
 volumes:
   mongo_data:
