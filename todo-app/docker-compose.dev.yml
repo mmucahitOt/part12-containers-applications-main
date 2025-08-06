@@ -10,6 +10,8 @@ services:
       - ./todo-frontend:/usr/src/app
     ports:
       - 5173:5173
+    env_file:
+      - .env.development
 
   backend-dev:
     image: todo-backend-dev
@@ -21,7 +23,7 @@ services:
     ports:
       - "${BACKEND_PORT:-3000}:3000"
     env_file:
-      - .env
+      - .env.development
     container_name: todo-backend-dev
     depends_on:
       - mongo
@@ -36,7 +38,7 @@ services:
       - ./todo-backend/mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
       - ./todo-backend/mongo_data:/data/db
     env_file:
-      - .env
+      - .env.development
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-root}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-root1234}
@@ -50,7 +52,7 @@ services:
     volumes:
       - ./todo-backend/redis_data:/data
     env_file:
-      - .env
+      - .env.development
     command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redis1234}
 
   nginx:
