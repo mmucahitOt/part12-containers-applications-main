@@ -28,3 +28,5 @@ RUN npm run build
 FROM nginx:stable-alpine
 
 COPY --from=build_stage /usr/src/app/dist /usr/share/nginx/html
+
+EXPOSE 80
